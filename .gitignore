@@ -1,0 +1,60 @@
+# ===============================
+# WordPress Core (optional)
+# ===============================
+/wp-admin/
+/wp-includes/
+/wp-*.php
+/xmlrpc.php
+/readme.html
+/license.txt
+
+# ===============================
+# WordPress Content
+# ===============================
+/wp-content/uploads/
+/wp-content/cache/
+/wp-content/upgrade/
+/wp-content/ai1wm-backups/
+/wp-content/backup*/
+/wp-content/backups/
+/wp-content/wflogs/
+/wp-content/debug.log
+
+# ===============================
+# Plugins & Themes (keep only custom)
+# ===============================
+/wp-content/plugins/*
+!/wp-content/plugins/green-hotel-booking/
+
+/wp-content/themes/*
+!/wp-content/themes/green-hotel-booking/
+
+# ===============================
+# Config & Environment
+# ===============================
+wp-config.php
+.env
+.env.*
+*.log
+
+# ===============================
+# OS / Editor files
+# ===============================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ===============================
+# Composer / Node
+# ===============================
+/vendor/
+/node_modules/
+package-lock.json
+yarn.lock
+
+# ===============================
+# Cache / Temp
+# ===============================
+*.cache
+*.tmp

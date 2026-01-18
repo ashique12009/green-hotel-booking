@@ -1,4 +1,7 @@
 <?php 
+require_once 'includes/hotel-features.php';
+
+add_theme_support('post-thumbnails');
 
 function ghb_assets() {
     wp_enqueue_style(

@@ -11,7 +11,7 @@
 </head>
 <body <?php body_class() ;?>>
     <!-- Navigation -->
-    <header class="header">
+    <!-- <header class="header">
         <nav class="nav">
             <a href="#" class="logo">
                 <span class="logo-icon">◈</span> Green Hotel Booking
@@ -26,6 +26,37 @@
                 <a href="#" class="btn-text">Login</a>
                 <a href="#" class="btn-primary">Book Now</a>
             </div>
+            <button class="mobile-menu-btn" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header> -->
+
+    <header class="header">
+        <nav class="nav">
+            <!-- Logo -->
+            <a href="<?php echo esc_url(home_url('/')); ?>" class="logo">
+                <span class="logo-icon">◈</span>
+                <?php bloginfo('name'); ?>
+            </a>
+
+            <!-- Dynamic Menu -->
+            <?php
+            wp_nav_menu([
+                'theme_location' => 'primary_menu',
+                'container'      => false,
+                'menu_class'     => 'nav-links',
+                'fallback_cb'    => false,
+            ]);
+            ?>
+
+            <div class="nav-actions">
+                <a href="#" class="btn-text">Login</a>
+                <a href="#" class="btn-primary">Book Now</a>
+            </div>
+
             <button class="mobile-menu-btn" aria-label="Menu">
                 <span></span>
                 <span></span>

@@ -9,6 +9,14 @@ function ghb_assets() {
         'main-style',
         get_stylesheet_uri()
     );
+
+    wp_enqueue_script(
+        'menu-js',
+        get_template_directory_uri() . '/assets/js/menu.js',
+        [],
+        null,
+        true
+    );
 }
 
 add_action('wp_enqueue_scripts', 'ghb_assets');

@@ -11,28 +11,6 @@
 </head>
 <body <?php body_class() ;?>>
     <!-- Navigation -->
-    <!-- <header class="header">
-        <nav class="nav">
-            <a href="#" class="logo">
-                <span class="logo-icon">◈</span> Green Hotel Booking
-            </a>
-            <ul class="nav-links">
-                <li><a href="#rooms">Rooms</a></li>
-                <li><a href="#amenities">Amenities</a></li>
-                <li><a href="#reviews">Reviews</a></li>
-                <li><a href="#location">Location</a></li>
-            </ul>
-            <div class="nav-actions">
-                <a href="#" class="btn-text">Login</a>
-                <a href="#" class="btn-primary">Book Now</a>
-            </div>
-            <button class="mobile-menu-btn" aria-label="Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </nav>
-    </header> -->
 
     <header class="header">
         <nav class="nav">

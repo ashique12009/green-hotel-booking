@@ -81,41 +81,31 @@
                 <h2>What We Offer</h2>
                 <p>Everything you need for an unforgettable stay</p>
             </div>
+
             <div class="amenities-grid">
-                <div class="amenity-item">
-                    <span class="amenity-icon">🏊</span>
-                    <span>Infinity Pool</span>
-                </div>
-                <div class="amenity-item">
-                    <span class="amenity-icon">📶</span>
-                    <span>Free WiFi</span>
-                </div>
-                <div class="amenity-item">
-                    <span class="amenity-icon">🍽️</span>
-                    <span>Fine Dining</span>
-                </div>
-                <div class="amenity-item">
-                    <span class="amenity-icon">💆</span>
-                    <span>Spa & Wellness</span>
-                </div>
-                <div class="amenity-item">
-                    <span class="amenity-icon">🏋️</span>
-                    <span>Fitness Center</span>
-                </div>
-                <div class="amenity-item">
-                    <span class="amenity-icon">🚗</span>
-                    <span>Valet Parking</span>
-                </div>
-                <div class="amenity-item">
-                    <span class="amenity-icon">🛎️</span>
-                    <span>24/7 Concierge</span>
-                </div>
-                <div class="amenity-item">
-                    <span class="amenity-icon">✈️</span>
-                    <span>Airport Transfer</span>
-                </div>
+                <?php
+                $amenities = new WP_Query([
+                    'post_type'      => 'amenity',
+                    'posts_per_page' => -1,
+                ]);
+
+                if ($amenities->have_posts()) :
+                    while ($amenities->have_posts()) : $amenities->the_post();
+                        $icon = get_post_meta(get_the_ID(), 'amenity_icon', true);
+                        ?>
+                        <div class="amenity-item">
+                            <span class="amenity-icon"><?php echo esc_html($icon); ?></span>
+                            <span><?php the_title(); ?></span>
+                        </div>
+                    <?php endwhile;
+                    wp_reset_postdata();
+                endif;
+                ?>
             </div>
-            <button class="btn-secondary">View All 38 Amenities</button>
+
+            <button class="btn-secondary">
+                View All Amenities
+            </button>
         </div>
     </section>
 
@@ -179,7 +169,6 @@
             </div>
         </div>
     </section>
-
 
     <!-- Testimonials -->
     <section class="testimonials" id="reviews">

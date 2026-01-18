@@ -126,62 +126,60 @@
                 <h2>Our Rooms & Suites</h2>
                 <p>Choose your perfect retreat</p>
             </div>
+
             <div class="rooms-grid">
+
+                <?php
+                $rooms = new WP_Query(array(
+                    'post_type'      => 'room',
+                    'posts_per_page' => 3
+                ));
+
+                if ($rooms->have_posts()) :
+                    while ($rooms->have_posts()) : $rooms->the_post();
+
+                    $badge     = get_post_meta(get_the_ID(), '_room_badge', true);
+                    $details   = get_post_meta(get_the_ID(), '_room_details', true);
+                    $old_price = get_post_meta(get_the_ID(), '_room_old_price', true);
+                    $new_price = get_post_meta(get_the_ID(), '_room_new_price', true);
+                ?>
+
                 <div class="room-card">
                     <div class="room-image">
-                        <img src="/placeholder.svg?height=280&width=400" alt="Deluxe Room">
-                        <span class="room-badge">Most Popular</span>
+                        <?php if (has_post_thumbnail()) : ?>
+                            <img src="<?php the_post_thumbnail_url('large'); ?>" alt="<?php the_title(); ?>">
+                        <?php endif; ?>
+
+                        <?php if ($badge) : ?>
+                            <span class="room-badge"><?php echo esc_html($badge); ?></span>
+                        <?php endif; ?>
                     </div>
+
                     <div class="room-content">
-                        <h3>Deluxe Room</h3>
-                        <p>45 sq m • King Bed • City View</p>
+                        <h3><?php the_title(); ?></h3>
+                        <p><?php echo esc_html($details); ?></p>
+
                         <div class="room-footer">
                             <div class="room-price">
-                            <span class="price-old">$280</span>
-                            <span class="price-new">$199</span>
-                            <span class="price-unit">/night</span>
+                                <?php if ($old_price) : ?>
+                                    <span class="price-old">$<?php echo esc_html($old_price); ?></span>
+                                <?php endif; ?>
+
+                                <span class="price-new">$<?php echo esc_html($new_price); ?></span>
+                                <span class="price-unit">/night</span>
                             </div>
+
                             <button class="btn-book">Book Now</button>
                         </div>
                     </div>
                 </div>
-                <div class="room-card">
-                    <div class="room-image">
-                        <img src="/placeholder.svg?height=280&width=400" alt="Premium Suite">
-                    </div>
-                    <div class="room-content">
-                        <h3>Premium Suite</h3>
-                        <p>65 sq m • King Bed • Ocean View</p>
-                        <div class="room-footer">
-                            <div class="room-price">
-                            <span class="price-old">$420</span>
-                            <span class="price-new">$349</span>
-                            <span class="price-unit">/night</span>
-                            </div>
-                            <button class="btn-book">Book Now</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="room-card">
-                    <div class="room-image">
-                        <img src="/placeholder.svg?height=280&width=400" alt="Penthouse">
-                    </div>
-                    <div class="room-content">
-                        <h3>Penthouse</h3>
-                        <p>120 sq m • 2 Bedrooms • Panoramic View</p>
-                        <div class="room-footer">
-                            <div class="room-price">
-                            <span class="price-old">$850</span>
-                            <span class="price-new">$699</span>
-                            <span class="price-unit">/night</span>
-                            </div>
-                            <button class="btn-book">Book Now</button>
-                        </div>
-                    </div>
-                </div>
+
+                <?php endwhile; wp_reset_postdata(); endif; ?>
+
             </div>
         </div>
     </section>
+
 
     <!-- Testimonials -->
     <section class="testimonials" id="reviews">

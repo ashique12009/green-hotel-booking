@@ -1,5 +1,6 @@
 <?php 
-require_once 'includes/hotel-features.php';
+require_once 'includes/hotel-features-custom-post-type.php';
+require_once 'includes/hotel-rooms-custom-post-type.php';
 
 add_theme_support('post-thumbnails');
 

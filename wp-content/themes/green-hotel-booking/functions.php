@@ -4,6 +4,7 @@ require_once 'includes/hotel-rooms-custom-post-type.php';
 require_once 'includes/hotel-amenities-custom-post-type.php';
 
 add_theme_support('post-thumbnails');
+add_theme_support('title-tag');
 
 function ghb_assets() {
     wp_enqueue_style(

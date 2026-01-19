@@ -3,6 +3,7 @@ require_once 'includes/hotel-features-custom-post-type.php';
 require_once 'includes/hotel-rooms-custom-post-type.php';
 require_once 'includes/hotel-amenities-custom-post-type.php';
 require_once 'includes/hotel-guest-exp-custom-post-type.php';
+require_once 'includes/menu-setup.php';
 
 add_theme_support('post-thumbnails');
 add_theme_support('title-tag');
@@ -23,11 +24,3 @@ function ghb_assets() {
 }
 
 add_action('wp_enqueue_scripts', 'ghb_assets');
-
-// Menu
-function ghb_register_menus() {
-    register_nav_menus([
-        'primary_menu' => 'Primary Header Menu',
-    ]);
-}
-add_action('after_setup_theme', 'ghb_register_menus');

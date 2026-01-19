@@ -10,7 +10,6 @@
 </head>
 <body <?php body_class() ;?>>
     <!-- Navigation -->
-
     <header class="header">
         <nav class="nav">
             <!-- Logo -->
@@ -22,7 +21,7 @@
             <!-- Dynamic Menu -->
             <?php
             wp_nav_menu([
-                'theme_location' => 'primary_menu',
+                'theme_location' => 'primary-header-menu',
                 'container'      => false,
                 'menu_class'     => 'nav-links',
                 'fallback_cb'    => false,

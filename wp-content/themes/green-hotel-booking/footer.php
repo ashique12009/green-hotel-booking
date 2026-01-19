@@ -4,9 +4,9 @@
             <div class="footer-brand">
                 <a href="#" class="logo">
                 <span class="logo-icon">◈</span>
-                Your Hotel Name
+                <?php echo get_bloginfo('name') ? get_bloginfo('name') : 'Your Hotel Name'; ?>
                 </a>
-                <p>Experience the pinnacle of luxury hospitality at Your Hotel Name.</p>
+                <p><?php echo get_bloginfo('description') ? get_bloginfo('description') : 'Experience the pinnacle of luxury hospitality at Your Hotel Name.'; ?></p>
             </div>
             <div class="footer-links">
                 <h4>Quick Links</h4>

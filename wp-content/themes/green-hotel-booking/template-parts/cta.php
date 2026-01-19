@@ -8,6 +8,6 @@
             <input type="hidden" name="nonce" value="<?php echo wp_create_nonce('cta_nonce'); ?>">
             <button type="submit" class="btn-primary">Get Started</button>
         </form>
-        <p class="cta-message"></p>
+        <p class="cta-message" style="margin: 0; padding: 0; margin-top: 10px;"></p>
     </div>
 </section>

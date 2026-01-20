@@ -81,19 +81,14 @@ if ( isset($_POST['confirm_booking']) ) {
 
             $table = $wpdb->prefix . 'room_bookings';
 
-            $wpdb->insert(
-                $table,
-                [
-                    'room_id'        => $room_id,
-                    'checkin'        => $checkin,
-                    'checkout'       => $checkout,
-                    'qty'            => 1,
-                    'customer_name'  => $name,
-                    'customer_email' => $email,
-                    'status'         => 'confirmed'
-                ],
-                ['%d','%s','%s','%d','%s','%s','%s']
-            );
+            ghb_insert_booking([
+                'room_id'        => $room_id,
+                'checkin'        => $checkin,
+                'checkout'       => $checkout,
+                'name'           => $name,
+                'email'          => $email
+            ]);
+
             echo '<div class="booking-confirmation-wrapper">';
             echo '<h2>✅ Booking Confirmed!</h2>';
             echo '<p>Thank you for your booking.</p>';

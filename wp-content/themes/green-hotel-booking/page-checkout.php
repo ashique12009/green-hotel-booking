@@ -130,23 +130,18 @@ if ( isset($_POST['confirm_booking']) ) {
             <hr>
 
             <form method="post" class="checkout-form">
-
                 <?php wp_nonce_field('confirm_booking_nonce'); ?>
-
                 <p>
                     <label>Your Name *</label>
                     <input type="text" name="customer_name" required>
                 </p>
-
                 <p>
                     <label>Email *</label>
                     <input type="email" name="customer_email" required>
                 </p>
-
                 <button type="submit" name="confirm_booking" class="btn-confirm btn-book mtop10">
                     Confirm Booking
                 </button>
-
             </form>
 
         </div>

@@ -134,12 +134,12 @@ if ( isset($_POST['confirm_booking']) ) {
                 <?php wp_nonce_field('confirm_booking_nonce'); ?>
 
                 <p>
-                    <label>Your Name *</label><br>
+                    <label>Your Name *</label>
                     <input type="text" name="customer_name" required>
                 </p>
 
                 <p>
-                    <label>Email *</label><br>
+                    <label>Email *</label>
                     <input type="email" name="customer_email" required>
                 </p>
 

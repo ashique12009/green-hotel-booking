@@ -663,6 +663,78 @@ ul {
     margin-bottom: 100px;
 }
 
+/* Checkout Form Wrapper */
+.checkout-form {
+    max-width: 420px;
+    margin: 30px auto;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Form paragraph spacing */
+.checkout-form p {
+    margin-bottom: 18px;
+}
+
+/* Labels */
+.checkout-form label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 6px;
+}
+
+/* Inputs */
+.checkout-form input[type="text"],
+.checkout-form input[type="email"] {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    background: #fafafa;
+}
+
+/* Input focus */
+.checkout-form input:focus {
+    outline: none;
+    border-color: #2d9cdb;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(45, 156, 219, 0.15);
+}
+
+/* Confirm Button */
+.btn-confirm {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    background: linear-gradient(135deg, #2d9cdb, #1b75bc);
+    color: #fff;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(45, 156, 219, 0.35);
+}
+
+/* Button hover */
+.btn-confirm:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 35px rgba(45, 156, 219, 0.45);
+}
+
+/* Button active */
+.btn-confirm:active {
+    transform: translateY(0);
+    box-shadow: 0 8px 18px rgba(45, 156, 219, 0.35);
+}
+
 /* Footer */
 .footer {
     background-color: var(--primary);

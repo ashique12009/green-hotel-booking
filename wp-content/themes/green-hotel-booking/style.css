@@ -640,6 +640,29 @@ ul {
     background-color: var(--accent-dark);
 }
 
+.booking-confirmation-wrapper{
+    text-align: center;
+    padding: 4rem 2rem;
+    background-color: #e6ffed;
+    border: 1px solid #b2f5c2;
+    border-radius: var(--radius);
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 200px;
+    margin-bottom: 100px;
+}
+.booking-error-wrapper{
+    text-align: center;
+    padding: 4rem 2rem;
+    background-color: #ffe6e6;
+    border: 1px solid #f5b2b2;
+    border-radius: var(--radius);
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 200px;
+    margin-bottom: 100px;
+}
+
 /* Footer */
 .footer {
     background-color: var(--primary);

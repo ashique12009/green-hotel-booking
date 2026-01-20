@@ -30,7 +30,7 @@
 
             <div class="nav-actions">
                 <a href="#" class="btn-text">Login</a>
-                <a href="#" class="btn-primary">Book Now</a>
+                <a href="#rooms" class="btn-primary">Book Now</a>
             </div>
 
             <button class="mobile-menu-btn" aria-label="Menu">

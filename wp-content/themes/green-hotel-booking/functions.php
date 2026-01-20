@@ -54,3 +54,31 @@ function write_log( $data ) {
         }
     }
 }
+
+// Available rooms page template
+function create_available_rooms_page() {
+
+    $slug = 'available-rooms';
+
+    // Check if page already exists
+    if ( ! get_page_by_path( $slug ) ) {
+
+        $page_id = wp_insert_post([
+            'post_title'   => 'Available Rooms',
+            'post_name'    => $slug,
+            'post_status'  => 'publish',
+            'post_type'    => 'page',
+            'post_content' => ''
+        ]);
+
+        // Assign page template (optional but good practice)
+        if ( $page_id && ! is_wp_error($page_id) ) {
+            update_post_meta(
+                $page_id,
+                '_wp_page_template',
+                'page-available-rooms.php'
+            );
+        }
+    }
+}
+add_action('after_switch_theme', 'create_available_rooms_page');

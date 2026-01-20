@@ -47,6 +47,8 @@ function ghb_room_meta_box_callback($post) {
     $details   = get_post_meta($post->ID, '_room_details', true);
     $old_price = get_post_meta($post->ID, '_room_old_price', true);
     $new_price = get_post_meta($post->ID, '_room_new_price', true);
+    $max_guest_number = get_post_meta($post->ID, '_room_max_guest_number', true);
+    $total_room_number = get_post_meta($post->ID, '_room_total_room_number', true);
     ?>
 
     <p>
@@ -67,6 +69,16 @@ function ghb_room_meta_box_callback($post) {
     <p>
         <label><strong>New Price ($)</strong></label><br>
         <input type="number" name="room_new_price" value="<?php echo esc_attr($new_price); ?>">
+    </p>
+
+    <p>
+        <label><strong>Max Guest Number</strong></label><br>
+        <input type="number" name="room_max_guest_number" value="<?php echo esc_attr($max_guest_number); ?>">
+    </p>
+
+    <p>
+        <label><strong>Total Room Number</strong></label><br>
+        <input type="number" name="room_total_room_number" value="<?php echo esc_attr($total_room_number); ?>">
     </p>
 
     <?php
@@ -90,6 +102,14 @@ function ghb_save_room_meta_fields($post_id) {
 
     if (isset($_POST['room_new_price'])) {
         update_post_meta($post_id, '_room_new_price', sanitize_text_field($_POST['room_new_price']));
+    }
+
+    if (isset($_POST['room_max_guest_number'])) {
+        update_post_meta($post_id, '_room_max_guest_number', sanitize_text_field($_POST['room_max_guest_number']));
+    }
+
+    if (isset($_POST['room_total_room_number'])) {
+        update_post_meta($post_id, '_room_total_room_number', sanitize_text_field($_POST['room_total_room_number']));
     }
 }
 add_action('save_post', 'ghb_save_room_meta_fields');

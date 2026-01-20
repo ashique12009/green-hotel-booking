@@ -9,7 +9,7 @@
         <div class="booking-header">
             <span class="price-badge">Best Price Guarantee</span>
         </div>
-        <form class="booking-form">
+        <form class="booking-form" method="get" action="<?php echo site_url('/available-rooms'); ?>">
             <div class="form-row">
                 <div class="form-group">
                     <label for="checkin">Check-in</label>

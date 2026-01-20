@@ -532,6 +532,10 @@ ul {
     background-color: var(--primary-light);
 }
 
+.room-content-inner {
+    padding: 6px 0 16px 0px;
+}
+
 /* Testimonials Section */
 .testimonials {
     padding: 5rem 0;
@@ -705,6 +709,23 @@ ul {
 .footer-bottom p {
     font-size: 0.875rem;
     opacity: 0.6;
+}
+
+/* Common  */
+.mtop5{
+    margin-top:5px;
+}
+.mtop10{
+    margin-top:10px;
+}
+.ptop100{
+    padding-top:100px;
+}
+.pbot50{
+    padding-bottom:50px;
+}
+.dib{
+    display:inline-block;
 }
 
 /* Responsive Design */

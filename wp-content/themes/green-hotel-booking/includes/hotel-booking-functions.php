@@ -9,17 +9,19 @@ function ghb_is_room_available($room_id, $checkin, $checkout) {
     $total_rooms = (int) get_post_meta($room_id, '_room_total_room_number', true);
 
     // already booked rooms in date range
-    $booked = $wpdb->get_var(
+    $booked = (int) $wpdb->get_var(
         $wpdb->prepare(
-            "SELECT SUM(qty) FROM $table
-             WHERE room_id = %d
-             AND status = 'confirmed'
-             AND (
-                (checkin < %s AND checkout > %s)
-             )",
+            "
+            SELECT COALESCE(SUM(qty), 0)
+            FROM {$table}
+            WHERE room_id = %d
+            AND status IN ('confirmed', 'paid')
+            AND checkin < %s
+            AND checkout > %s
+            ",
             $room_id,
-            $checkout,
-            $checkin
+            $checkout, // user input checkout date
+            $checkin   // user input checkin date
         )
     );
 

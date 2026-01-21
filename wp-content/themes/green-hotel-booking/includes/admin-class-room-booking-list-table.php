@@ -39,13 +39,41 @@ class Room_Bookings_List_Table extends WP_List_Table {
         <br><a href="' . esc_url($url) . '">Change</a>';
     }
 
+    protected function column_created($item) {
+        return esc_html($item->created_at);
+    }
+
     public function prepare_items() {
         global $wpdb;
 
         $table = $wpdb->prefix . 'room_bookings';
-        $data  = $wpdb->get_results("SELECT * FROM $table ORDER BY created_at DESC");
 
-        $this->items = $data;
+        $per_page = 10;
+        $current_page = $this->get_pagenum();
+        $offset = ($current_page - 1) * $per_page;
+
+        $total_items = (int) $wpdb->get_var(
+            "SELECT COUNT(*) FROM {$table}"
+        );
+
+        $this->items = $wpdb->get_results(
+            $wpdb->prepare(
+                "SELECT *
+                FROM {$table}
+                ORDER BY created_at DESC
+                LIMIT %d OFFSET %d",
+                $per_page,
+                $offset
+            )
+        );
+
+        $this->set_pagination_args([
+            'total_items' => $total_items,
+            'per_page'    => $per_page,
+            'total_pages' => ceil($total_items / $per_page),
+        ]);
+
         $this->_column_headers = [$this->get_columns(), [], []];
     }
+
 }

@@ -51,22 +51,15 @@ function ghb_save_cta_email() {
     $to = get_option('admin_email');
     $subject = 'New CTA Signup';
 
-    $message = '
-    <html>
-    <body>
-        <h2>New CTA Signup</h2>
-        <p>A new user has been added as a subscriber.</p>
-        <p><strong>Email:</strong> ' . esc_html($email) . '</p>
-    </body>
-    </html>
-    ';
+    $message = ghb_get_email_template('cta-admin-email-notification', [
+        'email' => $email,
+    ]);
 
     $headers = array(
         'Content-Type: text/html; charset=UTF-8'
     );
 
     wp_mail($to, $subject, $message, $headers);
-
 
     wp_send_json_success('Thank you for subscribing!');
 }

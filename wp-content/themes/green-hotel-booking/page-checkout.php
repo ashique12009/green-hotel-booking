@@ -93,12 +93,6 @@ if ( isset($_POST['confirm_booking']) ) {
                 'email'          => $email
             ]);
 
-            // Email notification to customer
-            // $to      = $email;
-            // $subject = 'Booking Confirmation';
-            // $message = "Dear $name,\n\nYour booking has been confirmed.\n\n";
-            // $message .= "Details: Room: {$room->post_title}\nCheck-in: $checkin\nCheck-out: $checkout\nNights: $nights\nTotal Price: €$total_price\n\nThank you for choosing us!";
-            
             // Prepare email data
             $subject = 'Booking Confirmation';
 

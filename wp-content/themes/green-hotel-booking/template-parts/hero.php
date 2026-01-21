@@ -1,7 +1,7 @@
 <section class="hero">
     <div class="hero-content">
-        <h1 class="hero-title">Experience Luxury<br>Like Never Before</h1>
-        <p class="hero-subtitle">Discover the perfect blend of comfort, elegance, and world-class hospitality at Azure Haven Hotel</p>
+        <h1 class="hero-title"><?php echo nl2br( esc_html( get_option('ghb_hero_title') ) ); ?></h1>
+        <p class="hero-subtitle"><?php echo esc_html( get_option('ghb_hero_subtitle') ); ?></p>
     </div>
 
     <!-- Booking Form -->

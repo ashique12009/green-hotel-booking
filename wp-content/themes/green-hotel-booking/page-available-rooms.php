@@ -62,7 +62,7 @@ $rooms = new WP_Query($args);
                         $room_id     = get_the_ID();
                         $new_price   = get_post_meta($room_id, '_room_new_price', true);
                         $old_price   = get_post_meta($room_id, '_room_old_price', true);
-                        $room_size   = get_post_meta($room_id, 'room_size', true);
+                        $room_size   = get_post_meta($room_id, '_room_details', true);
 
                         /* -------------------------
                         * 4. Availability check
@@ -90,7 +90,7 @@ $rooms = new WP_Query($args);
                                     <li><strong>Room Size:</strong> <?php echo esc_html($room_size); ?></li>
                                 <?php endif; ?>
 
-                                <li><strong>Guests:</strong> Up to <?php echo esc_html(get_post_meta($room_id, 'max_guests', true)); ?></li>
+                                <li><strong>Guests:</strong> Up to <?php echo esc_html(get_post_meta($room_id, '_room_max_guest_number', true)); ?></li>
                             </ul>
 
                             <div class="room-price">

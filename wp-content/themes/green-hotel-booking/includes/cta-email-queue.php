@@ -54,7 +54,7 @@ function ghb_queue_new_post_email($new_status, $old_status, $post) {
         <p><a href='" . get_permalink($post->ID) . "'>Read the full post</a></p>
     ";
 
-    // Queue emails (no wp_mail here!)
+    // Put this emails into the Queue (no wp_mail will send here!)
     foreach ($subscribers as $email) {
         $wpdb->insert(
             $wpdb->prefix . 'cta_email_queue',

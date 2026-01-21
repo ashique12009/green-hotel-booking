@@ -27,7 +27,9 @@ if ( ! $room_id || ! $checkin || ! $checkout ) {
 $room = get_post($room_id);
 
 if ( ! $room || $room->post_type !== 'room' ) {
+    echo '<div class="booking-error-wrapper">';
     echo '<p>Room not found.</p>';
+    echo '</div>';
     get_footer();
     return;
 }
@@ -43,7 +45,9 @@ $checkout_date = new DateTime($checkout);
 $nights        = $checkin_date->diff($checkout_date)->days;
 
 if ( $nights <= 0 ) {
+    echo '<div class="booking-error-wrapper">';
     echo '<p>Invalid date selection.</p>';
+    echo '</div>';
     get_footer();
     return;
 }
@@ -89,6 +93,15 @@ if ( isset($_POST['confirm_booking']) ) {
                 'email'          => $email
             ]);
 
+            // Email notification to customer
+            $to      = $email;
+            $subject = 'Booking Confirmation';
+            $message = "Dear $name,\n\nYour booking has been confirmed.\n\n";
+            $message .= "Details: Room: {$room->post_title}\nCheck-in: $checkin\nCheck-out: $checkout\nNights: $nights\nTotal Price: €$total_price\n\nThank you for choosing us!";
+            
+            // Put this emails into the Queue (no wp_mail will send here!)
+            ghb_insert_booking_confirmation_into_queue($to, $subject, nl2br($message));
+
             echo '<div class="booking-confirmation-wrapper">';
             echo '<h2>✅ Booking Confirmed!</h2>';
             echo '<p>Thank you for your booking.</p>';
@@ -104,7 +117,7 @@ if ( isset($_POST['confirm_booking']) ) {
     }
 }
 ?>
-<section class="checkout-section ptop100 pbot50">
+<section class="checkout-section ptop100 pbot50 minh300">
     <div class="container">
         <div class="checkout-wrapper">
 

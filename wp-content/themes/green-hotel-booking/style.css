@@ -822,6 +822,9 @@ ul {
 .dib{
     display:inline-block;
 }
+.minh300{
+    min-height:300px;
+}
 
 /* Responsive Design */
 @media (max-width: 1024px) {

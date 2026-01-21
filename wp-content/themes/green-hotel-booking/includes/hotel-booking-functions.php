@@ -47,3 +47,19 @@ function ghb_insert_booking($data) {
         ['%d','%s','%s','%d','%s','%s','%s']
     );
 }
+
+function ghb_insert_booking_confirmation_into_queue($email, $subject, $message) {
+    global $wpdb;
+
+    $table = $wpdb->prefix . 'cta_email_queue';
+
+    $wpdb->insert(
+        $table,
+        [
+            'email'   => $email,
+            'subject' => $subject,
+            'message' => $message,
+            'status'  => 'pending'
+        ]
+    );
+}

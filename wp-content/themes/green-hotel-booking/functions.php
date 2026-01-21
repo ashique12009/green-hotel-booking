@@ -113,3 +113,19 @@ function create_checkout_page() {
     }
 }
 add_action('after_switch_theme', 'create_checkout_page');
+
+// Load email template
+function ghb_get_email_template($template_name, $vars = []) {
+
+    $template_path = get_stylesheet_directory() . '/includes/email-templates/' . $template_name . '.php';
+
+    if ( ! file_exists($template_path) ) {
+        return '';
+    }
+
+    extract($vars); // make variables available inside template
+
+    ob_start();
+    include $template_path;
+    return ob_get_clean();
+}

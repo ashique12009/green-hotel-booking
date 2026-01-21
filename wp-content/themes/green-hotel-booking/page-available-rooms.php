@@ -15,7 +15,9 @@ $guests   = isset($_GET['guests']) ? (int) $_GET['guests'] : 1;
  * 2. Basic validation
  * ------------------------- */
 if ( empty($checkin) || empty($checkout) || $checkin >= $checkout ) {
+    echo '<div class="booking-error-wrapper">';
     echo '<p class="error">Please select valid check-in and check-out dates.</p>';
+    echo '</div>';
     get_footer();
     return;
 }

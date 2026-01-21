@@ -94,13 +94,25 @@ if ( isset($_POST['confirm_booking']) ) {
             ]);
 
             // Email notification to customer
-            $to      = $email;
+            // $to      = $email;
+            // $subject = 'Booking Confirmation';
+            // $message = "Dear $name,\n\nYour booking has been confirmed.\n\n";
+            // $message .= "Details: Room: {$room->post_title}\nCheck-in: $checkin\nCheck-out: $checkout\nNights: $nights\nTotal Price: €$total_price\n\nThank you for choosing us!";
+            
+            // Prepare email data
             $subject = 'Booking Confirmation';
-            $message = "Dear $name,\n\nYour booking has been confirmed.\n\n";
-            $message .= "Details: Room: {$room->post_title}\nCheck-in: $checkin\nCheck-out: $checkout\nNights: $nights\nTotal Price: €$total_price\n\nThank you for choosing us!";
+
+            $email_html = ghb_get_email_template('booking-confirmation', [
+                'name'          => $name,
+                'room_title'    => $room->post_title,
+                'checkin'       => $checkin,
+                'checkout'      => $checkout,
+                'nights'        => $nights,
+                'total_price'   => $total_price,
+            ]);
             
             // Put this emails into the Queue (no wp_mail will send here!)
-            ghb_insert_booking_confirmation_into_queue($to, $subject, nl2br($message));
+            ghb_insert_booking_confirmation_into_queue($email, $subject, $email_html);
 
             echo '<div class="booking-confirmation-wrapper">';
             echo '<h2>✅ Booking Confirmed!</h2>';

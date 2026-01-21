@@ -30,7 +30,7 @@
 
             <div class="nav-actions">
                 <a href="#" class="btn-text">Login</a>
-                <a href="#rooms" class="btn-primary">Book Now</a>
+                <a href="<?php echo esc_url(site_url('/all-rooms')); ?>" class="btn-primary">Book Now</a>
             </div>
 
             <button class="mobile-menu-btn" aria-label="Menu">

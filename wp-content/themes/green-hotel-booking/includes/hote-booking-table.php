@@ -15,6 +15,11 @@ function ghb_create_booking_table() {
         customer_name VARCHAR(190),
         customer_email VARCHAR(190),
         status VARCHAR(50) DEFAULT 'confirmed',
+        paid_amount DECIMAL(10,2),
+        currency VARCHAR(10),
+        payment_status VARCHAR(20),
+        payment_method VARCHAR(50),
+        transaction_id VARCHAR(100),
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
         PRIMARY KEY (id),
         KEY room_id (room_id)

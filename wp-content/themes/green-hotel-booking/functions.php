@@ -10,6 +10,7 @@ require_once 'includes/hote-booking-table.php';
 require_once 'includes/hotel-booking-functions.php';
 require_once 'includes/admin-hotel-room-booking-functions.php';
 require_once 'includes/admin-settings/home-page/settings-menu.php';
+require_once 'includes/subscribers-page/subscriber-menu.php';
 
 add_theme_support('post-thumbnails');
 add_theme_support('title-tag');

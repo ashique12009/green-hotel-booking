@@ -29,7 +29,16 @@
             ?>
 
             <div class="nav-actions">
-                <a href="#" class="btn-text">Login</a>
+                <?php if ( is_user_logged_in() ) : ?>
+                    <a href="<?php echo esc_url( admin_url( 'admin.php?page=subscriber-my-account' ) ); ?>" class="btn-text">
+                        My Account
+                    </a>
+                <?php else : ?>
+                    <a href="<?php echo esc_url( wp_login_url( get_permalink() ) ); ?>" class="btn-text">
+                        Login
+                    </a>
+                <?php endif; ?>
+
                 <a href="<?php echo esc_url(site_url('/all-rooms')); ?>" class="btn-primary">Book Now</a>
             </div>
 

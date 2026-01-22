@@ -86,24 +86,34 @@ if ( isset($_POST['confirm_booking']) ) {
         echo '<p>Missing required data.</p>';
         echo '</div>';
     } else {
+        $data = [
+            'room_id'        => $room_id,
+            'checkin'        => $checkin,
+            'checkout'       => $checkout,
+            'qty'            => 1,
+            'customer_name'  => $name,
+            'customer_email' => $email,
+            'status'         => 'confirmed',
+            'paid_amount'    => $total_price,
+            'currency'       => 'EUR',
+            'payment_status' => 'paid',
+            'payment_method' => 'stripe_test',
+            'transaction_id' => $payment_intent,
+        ];
 
-        $wpdb->insert(
-            $wpdb->prefix . 'room_bookings',
-            [
-                'room_id'        => $room_id,
-                'checkin'        => $checkin,
-                'checkout'       => $checkout,
-                'qty'            => $guests,
-                'customer_name'  => $name,
-                'customer_email' => $email,
-                'status'         => 'confirmed',
-                'paid_amount'    => $total_price,
-                'currency'       => 'EUR',
-                'payment_status' => 'paid',
-                'payment_method' => 'stripe_test',
-                'transaction_id' => $payment_intent,
-            ]
-        );
+        ghb_insert_booking($data);
+
+        // Send booking confirmation email
+        $email_subject = 'Booking Confirmation';
+        $email_message = ghb_get_email_template('booking-confirmation', [
+            'name'       => $name,
+            'room_title' => $room->post_title,
+            'checkin'    => $checkin,
+            'checkout'   => $checkout,
+            'nights'     => $nights,
+            'total_price'=> $total_price,
+        ]);
+        ghb_insert_booking_confirmation_into_queue($email, $email_subject, $email_message);
 
         echo '<div class="booking-confirmation-wrapper">';
         echo '<h2>✅ Booking Confirmed</h2>';

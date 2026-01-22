@@ -38,15 +38,21 @@ function ghb_insert_booking($data) {
     $wpdb->insert(
         $table,
         [
-            'room_id'        => $data['room_id'],
-            'checkin'        => $data['checkin'],
-            'checkout'       => $data['checkout'],
-            'qty'            => 1,
-            'customer_name'  => $data['name'],
-            'customer_email' => $data['email'],
-            'status'         => 'confirmed'
+            'room_id'       => $data['room_id'],
+            'checkin'       => $data['checkin'],
+            'checkout'      => $data['checkout'],
+            'qty'           => $data['qty'],
+            'customer_name' => $data['customer_name'],
+            'customer_email'=> $data['customer_email'],
+            'status'        => $data['status'],
+            'paid_amount'   => $data['paid_amount'],
+            'currency'      => $data['currency'],
+            'payment_status'=> $data['payment_status'],
+            'payment_method'=> $data['payment_method'],
+            'transaction_id'=> $data['transaction_id'],
+            'created_at'    => current_time('mysql')
         ],
-        ['%d','%s','%s','%d','%s','%s','%s']
+        ['%d','%s','%s','%d','%s','%s','%s','%f','%s','%s','%s','%s','%s']
     );
 }
 

@@ -5,6 +5,12 @@ Template Name: Checkout
 
 get_header();
 
+$current_user = null;
+
+if ( is_user_logged_in() ) {
+    $current_user = wp_get_current_user();
+}
+
 global $wpdb;
 
 /* ---------------------------------
@@ -147,11 +153,11 @@ if ( isset($_POST['confirm_booking']) ) {
                 <?php wp_nonce_field('confirm_booking_nonce'); ?>
                 <p>
                     <label>Your Name *</label>
-                    <input type="text" name="customer_name" required>
+                    <input type="text" name="customer_name" value="<?php echo $current_user ? esc_attr( $current_user->display_name ) : ''; ?>" required>
                 </p>
                 <p>
                     <label>Email *</label>
-                    <input type="email" name="customer_email" required>
+                    <input type="email" name="customer_email" value="<?php echo $current_user ? esc_attr( $current_user->user_email ) : ''; ?>" required>
                 </p>
                 <button type="submit" name="confirm_booking" class="btn-confirm btn-book mtop10">
                     Confirm Booking

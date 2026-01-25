@@ -38,6 +38,14 @@ function ghb_assets() {
         true
     );
 
+    wp_enqueue_script(
+        'booking-modal-js',
+        get_template_directory_uri() . '/assets/js/booking-modal.js',
+        [],
+        null,
+        true
+    );
+
     wp_localize_script(
         'cta-js',
         'ghbCta',

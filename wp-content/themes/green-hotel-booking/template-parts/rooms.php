@@ -47,7 +47,7 @@
                             <span class="price-unit">/night</span>
                         </div>
 
-                        <button class="btn-book">Book Now</button>
+                        <button class="btn-book" data-room-id="<?php echo get_the_ID(); ?>">Book Now</button>
                     </div>
                 </div>
             </div>

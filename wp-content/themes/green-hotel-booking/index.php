@@ -18,6 +18,9 @@
     <!-- CTA Section -->
     <?php get_template_part('template-parts/cta'); ?>
 
+    <!-- Booking modal -->
+    <?php get_template_part('template-parts/booking-modal'); ?>
+
     <!-- Footer -->
     <?php get_footer(); ?>
 </body>

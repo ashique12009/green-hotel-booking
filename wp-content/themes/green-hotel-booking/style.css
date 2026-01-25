@@ -753,6 +753,33 @@ body.admin-bar .header {
     box-shadow: 0 8px 18px rgba(45, 156, 219, 0.35);
 }
 
+/* Booking Modal */
+.booking-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 9999;
+}
+
+.booking-modal-content {
+    background: #fff;
+    width: 100%;
+    max-width: 455px;
+    margin: 10% auto;
+    padding: 25px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.booking-close {
+    position: absolute;
+    right: 9px;
+    top: 1px;
+    cursor: pointer;
+    font-size: 22px;
+}
+
 /* Footer */
 .footer {
     background-color: var(--primary);

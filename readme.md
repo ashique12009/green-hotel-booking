@@ -17,7 +17,7 @@ This is a custom hotel room booking wordpress theme.
 
 ## 📸 Screenshots
 
-
+<img width="3024" height="7889" alt="Image" src="https://github.com/user-attachments/assets/6953c266-327f-42d1-81ea-bf453fbb8d37" />
 
 ---
 

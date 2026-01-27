@@ -12,6 +12,8 @@ This is a custom hotel room booking wordpress theme.
 - Admin can post room as post type that admin can create new room as many admin wants like Delux room, Premium room etc
 - Admin can post amenity of hotel or room as a custom post type
 - Admin can post guest experices that will show in frontend nicely
+- There is a subscription option available, if user puts email in footer subscription form then that user will get new post email notification
+- If user books a room then he/she gets booking confirmation email notification and admin too
 
 ## 📸 Screenshots
 

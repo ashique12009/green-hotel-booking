@@ -1,6 +1,6 @@
 # Hotel room booking application
 
-This is a custom hotel room booking wordpress theme.
+This is a custom hotel room booking wordpress theme
 
 ---
 
@@ -16,9 +16,20 @@ This is a custom hotel room booking wordpress theme.
 - If user books a room then he/she gets booking confirmation email notification and admin too
 
 ## 📸 Screenshots
+Home:
+<img width="3024" height="7889" alt="Image" src="https://github.com/user-attachments/assets/6953c266-327f-42d1-81ea-bf453fbb8d37" />
 
+Settings:
+<img width="2118" height="1022" alt="Image" src="https://github.com/user-attachments/assets/10b3c9e8-2e62-42bb-864d-2f0300751b7a" />
 
+Rooms:
+<img width="1444" height="1158" alt="Image" src="https://github.com/user-attachments/assets/ed273f9e-3483-4e84-930b-c2aa0a15d65d" />
 
+Booking list:
+<img width="2990" height="1022" alt="Image" src="https://github.com/user-attachments/assets/115c82b0-39ed-4c0a-8372-1c3de61e2c08" />
+
+Room details:
+<img width="2982" height="1372" alt="Image" src="https://github.com/user-attachments/assets/85acd85b-ec1c-4f8a-a5f5-139a39e4484f" />
 ---
 
 ## 🛠 Tech Stack

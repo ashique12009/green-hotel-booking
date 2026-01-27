@@ -21,6 +21,10 @@ class Room_Bookings_List_Table extends WP_List_Table {
         return '<input type="checkbox" name="booking_id[]" value="' . esc_attr($item->id) . '">';
     }
 
+    protected function column_id($item) {
+        return esc_html($item->id);
+    }
+
     protected function column_room($item) {
         return get_the_title($item->room_id);
     }
@@ -34,9 +38,16 @@ class Room_Bookings_List_Table extends WP_List_Table {
     }
 
     protected function column_status($item) {
-        $url = admin_url('admin.php?page=room-bookings&action=change_status&id=' . $item->id);
-        return '<strong>' . esc_html($item->status) . '</strong>
-        <br><a href="' . esc_url($url) . '">Change</a>';
+        $base_url = admin_url('admin.php?page=room-bookings&action=change_status&id=' . $item->id);
+
+        $confirmed_url = wp_nonce_url($base_url . '&new_status=confirmed', 'change_booking_status_' . $item->id);
+        $paid_url      = wp_nonce_url($base_url . '&new_status=paid', 'change_booking_status_' . $item->id);
+        $cancel_url    = wp_nonce_url($base_url . '&new_status=cancelled', 'change_booking_status_' . $item->id);
+
+        return '<strong>' . esc_html($item->status) . '</strong><br>
+            <a href="' . esc_url($confirmed_url) . '" style="color:#0073aa;">Confirmed</a> | 
+            <a href="' . esc_url($paid_url) . '" style="color:green;">Paid</a> | 
+            <a href="' . esc_url($cancel_url) . '" style="color:red;">Cancelled</a>';
     }
 
     protected function column_created($item) {

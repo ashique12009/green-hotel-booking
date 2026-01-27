@@ -30,21 +30,29 @@ function render_room_bookings_page() {
 
 // Handle status change action
 add_action('admin_init', function () {
-
     if (
-        isset($_GET['action'], $_GET['id']) && $_GET['action'] === 'change_status' && 
+        isset($_GET['action'], $_GET['id'], $_GET['new_status']) &&
+        $_GET['action'] === 'change_status' &&
         current_user_can('manage_options')
     ) {
         global $wpdb;
 
         $id = (int) $_GET['id'];
+        $new_status = sanitize_text_field($_GET['new_status']);
+
+        // Security nonce check
+        if ( ! wp_verify_nonce($_GET['_wpnonce'], 'change_booking_status_' . $id) ) {
+            wp_die('Security check failed');
+        }
+
+        // Only allow these values
+        $allowed_statuses = ['confirmed', 'paid', 'cancelled'];
+
+        if ( ! in_array($new_status, $allowed_statuses, true) ) {
+            wp_die('Invalid status');
+        }
+
         $table = $wpdb->prefix . 'room_bookings';
-
-        $current = $wpdb->get_var(
-            $wpdb->prepare("SELECT status FROM $table WHERE id = %d", $id)
-        );
-
-        $new_status = ($current === 'confirmed') ? 'paid' : 'cancelled';
 
         $wpdb->update(
             $table,

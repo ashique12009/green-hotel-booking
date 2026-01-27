@@ -28,8 +28,9 @@ Rooms:
 Booking list:
 <img width="2990" height="1022" alt="Image" src="https://github.com/user-attachments/assets/115c82b0-39ed-4c0a-8372-1c3de61e2c08" />
 
-Room details:
+Room detail:
 <img width="2982" height="1372" alt="Image" src="https://github.com/user-attachments/assets/85acd85b-ec1c-4f8a-a5f5-139a39e4484f" />
+
 ---
 
 ## 🛠 Tech Stack

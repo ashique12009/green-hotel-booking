@@ -1,6 +1,6 @@
 <section class="hero">
     <div class="hero-content">
-        <h1 class="hero-title"><?php echo nl2br( esc_html( get_option('ghb_hero_title') ) ); ?></h1>
+        <h1 class="hero-title"><?php echo nl2br( wp_kses_post( get_option('ghb_hero_title') ) ); ?></h1>
         <p class="hero-subtitle"><?php echo esc_html( get_option('ghb_hero_subtitle') ); ?></p>
     </div>
 

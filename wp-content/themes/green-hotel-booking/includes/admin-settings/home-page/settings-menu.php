@@ -23,7 +23,7 @@ function ghb_home_page_settings_page() {
 
         update_option(
             'ghb_hero_title',
-            sanitize_text_field($_POST['ghb_hero_title'])
+            wp_kses_post($_POST['ghb_hero_title'])
         );
 
         update_option(
@@ -50,11 +50,16 @@ function ghb_home_page_settings_page() {
                         <label for="ghb_hero_title">Hero Title</label>
                     </th>
                     <td>
-                        <input type="text"
+                        <!-- <input type="text"
                                id="ghb_hero_title"
                                name="ghb_hero_title"
-                               value="<?php echo esc_attr($hero_title); ?>"
-                               class="regular-text">
+                               value="<?php //echo esc_attr($hero_title); ?>"
+                               class="regular-text"> -->
+
+                        <textarea id="ghb_hero_title"
+                                  name="ghb_hero_title"
+                                  rows="4"
+                                  class="large-text"><?php echo esc_textarea($hero_title); ?></textarea>
                     </td>
                 </tr>
 

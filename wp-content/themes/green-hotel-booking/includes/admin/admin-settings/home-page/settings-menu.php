@@ -1,5 +1,4 @@
 <?php 
-
 // Add Home Page Settings menu
 function ghb_add_home_page_settings_menu() {
     add_menu_page(
@@ -50,12 +49,6 @@ function ghb_home_page_settings_page() {
                         <label for="ghb_hero_title">Hero Title</label>
                     </th>
                     <td>
-                        <!-- <input type="text"
-                               id="ghb_hero_title"
-                               name="ghb_hero_title"
-                               value="<?php //echo esc_attr($hero_title); ?>"
-                               class="regular-text"> -->
-
                         <textarea id="ghb_hero_title"
                                   name="ghb_hero_title"
                                   rows="4"

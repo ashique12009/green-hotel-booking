@@ -1,15 +1,22 @@
 <?php 
-require_once 'includes/hotel-features-custom-post-type.php';
-require_once 'includes/hotel-rooms-custom-post-type.php';
-require_once 'includes/hotel-amenities-custom-post-type.php';
-require_once 'includes/hotel-guest-exp-custom-post-type.php';
-require_once 'includes/menu-setup.php';
-require_once 'includes/cta-newsletter.php';
-require_once 'includes/cta-email-queue.php';
-require_once 'includes/hote-booking-table.php';
-require_once 'includes/hotel-booking-functions.php';
-require_once 'includes/admin-hotel-room-booking-functions.php';
-require_once 'includes/admin-settings/home-page/settings-menu.php';
+require_once 'includes/db/db-operations.php';
+require_once 'includes/db/hotel-booking-table.php';
+require_once 'includes/db/cta-newsletter-table.php';
+require_once 'includes/db/cta-email-queue-table.php';
+
+require_once 'includes/custom-post-types/hotel-features-custom-post-type.php';
+require_once 'includes/custom-post-types/hotel-rooms-custom-post-type.php';
+require_once 'includes/custom-post-types/hotel-amenities-custom-post-type.php';
+require_once 'includes/custom-post-types/hotel-guest-exp-custom-post-type.php';
+
+require_once 'includes/admin/admin-list-tables/admin-hotel-room-booking-functions.php';
+require_once 'includes/admin/admin-settings/home-page/settings-menu.php';
+require_once 'includes/admin/admin-menu/menu-setup.php';
+require_once 'includes/admin/admin-process-queues/cta-email-queue.php';
+
+require_once 'includes/frontend/hotel-booking-functions.php';
+require_once 'includes/frontend/cta-newsletter.php';
+
 require_once 'includes/subscribers-page/subscriber-menu.php';
 require_once 'includes/stripe-payment-handle/stripe-payment.php';
 

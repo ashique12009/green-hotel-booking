@@ -13,7 +13,7 @@ add_action('admin_menu', function () {
 
 function render_room_bookings_page() {
 
-    require_once get_stylesheet_directory() . '/includes/admin-class-room-booking-list-table.php';
+    require_once get_stylesheet_directory() . '/includes/admin/admin-list-tables/admin-class-room-booking-list-table.php';
 
     $table = new Room_Bookings_List_Table();
     $table->prepare_items();
